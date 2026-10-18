@@ -50,7 +50,19 @@ export const ROOMS_DATA: RoomItem[] = [
     galleryImages: [
       {
         src: "/images/rooms/iraa-deluxe-double.png",
-        alt: "Tampilan utama kamar Iraa Deluxe Double dengan ranjang rapi dan lampu tidur hangat",
+        alt: "Kamar utama Iraa Deluxe Double dengan ranjang 160×200 cm, pencahayaan headboard hangat, dan handuk bersih",
+      },
+      {
+        src: "/images/rooms/iraa-deluxe-double-interior.png",
+        alt: "Fasilitas TV LED dinding dengan backlight hangat, meja kerja, lemari pakaian, dan rak koper",
+      },
+      {
+        src: "/images/rooms/iraa-deluxe-double-bathroom.png",
+        alt: "Kamar mandi pribadi bersih dengan shower water heater dan kloset duduk modern",
+      },
+      {
+        src: "/images/rooms/iraa-deluxe-double-amenities.png",
+        alt: "Perlengkapan menginap lengkap: air mineral botol, toiletries sabun & sampo cair, dental kit sikat gigi, dan kotak tisu",
       },
     ],
   },

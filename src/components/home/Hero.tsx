@@ -94,13 +94,6 @@ export function Hero() {
 
       <Container size="default" className="relative z-20 py-16 text-center text-white">
         <div className="max-w-3xl mx-auto space-y-6">
-          {/* Subtle uppercase kicker with first-time entrance animation */}
-          <div className="animate-hero-kicker inline-flex items-center gap-2 px-4 py-1.5 border border-white/20 bg-black/35 backdrop-blur-md rounded-full">
-            <span className="w-2 h-2 rounded-full bg-hotel-bronze-light animate-pulse" />
-            <span className="text-[10px] sm:text-xs uppercase tracking-mega text-hotel-cream font-medium">
-              Iraa Hotel Malioboro &bull; Yogyakarta
-            </span>
-          </div>
 
           {/* Main Editorial Headline with First-Time Entry Animation */}
           <h1 className="animate-hero-title font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-normal tracking-tight text-white leading-[1.25] sm:leading-[1.18] pb-2 text-balance max-w-4xl mx-auto">

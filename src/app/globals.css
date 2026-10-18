@@ -403,6 +403,33 @@
   transform-origin: left;
 }
 
+/* Room Detail Staged Entrances */
+.animate-room-gallery {
+  animation: fadeInUp 0.7s var(--ease-editorial) 0.05s both;
+}
+
+.animate-room-header {
+  animation: fadeInUp 0.75s var(--ease-editorial) 0.15s both;
+}
+
+.animate-room-specs {
+  animation: fadeInUp 0.75s var(--ease-editorial) 0.25s both;
+}
+
+.animate-room-amenities {
+  animation: fadeInUp 0.75s var(--ease-editorial) 0.35s both;
+}
+
+.animate-room-sidebar {
+  animation: fadeInUp 0.8s var(--ease-editorial) 0.2s both;
+}
+
+@media (min-width: 1024px) {
+  .animate-room-sidebar {
+    animation: fadeInRight 0.85s var(--ease-editorial) 0.2s both;
+  }
+}
+
 /* ==========================================================================
    SCROLL REVEAL UTILITIES (INTERSECTION OBSERVER DRIVEN)
    ========================================================================== */

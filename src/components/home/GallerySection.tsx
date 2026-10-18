@@ -12,12 +12,56 @@ import { Maximize2 } from "lucide-react";
 export function GallerySection() {
   const [activeImageIndex, setActiveImageIndex] = useState<number | null>(null);
 
-  const allImages = ROOMS_DATA.map((room) => ({
-    src: room.image,
-    alt: `${room.name} — ${room.imageAlt}`,
-    roomName: room.name,
-    capacity: room.capacity,
-  }));
+  const allImages = [
+    {
+      src: "/images/rooms/iraa-deluxe-double.png",
+      alt: "Kamar Iraa Deluxe Double dengan ranjang 160×200 cm dan pencahayaan hangat",
+      roomName: "Iraa Deluxe Double (Kamar Utama)",
+      capacity: 2,
+    },
+    {
+      src: "/images/rooms/iraa-deluxe-double-interior.png",
+      alt: "Fasilitas TV LED dinding dengan backlight hangat, meja kerja, dan lemari pakaian",
+      roomName: "Iraa Deluxe Double (TV & Wardrobe)",
+      capacity: 2,
+    },
+    {
+      src: "/images/rooms/iraa-deluxe-double-bathroom.png",
+      alt: "Kamar mandi pribadi bersih dengan shower water heater dan kloset duduk modern",
+      roomName: "Iraa Deluxe Double (Kamar Mandi)",
+      capacity: 2,
+    },
+    {
+      src: "/images/rooms/iraa-deluxe-double-amenities.png",
+      alt: "Perlengkapan menginap: air mineral botol, toiletries sabun/sampo cair, dan sikat gigi",
+      roomName: "Iraa Deluxe Double (Amenities)",
+      capacity: 2,
+    },
+    {
+      src: "/images/rooms/iraa-deluxe-twin.png",
+      alt: "Kamar Iraa Deluxe Twin dengan dua ranjang terpisah dan pendingin AC",
+      roomName: "Iraa Deluxe Twin",
+      capacity: 2,
+    },
+    {
+      src: "/images/rooms/iraa-family-room.png",
+      alt: "Kamar Iraa Family Room berkapasitas 3 orang untuk keluarga",
+      roomName: "Iraa Family Room",
+      capacity: 3,
+    },
+    {
+      src: "/images/rooms/iraa-economy-ac.png",
+      alt: "Kamar Iraa Economy AC dengan fasilitas meja kerja dan penyejuk ruangan",
+      roomName: "Iraa Economy AC",
+      capacity: 2,
+    },
+    {
+      src: "/images/rooms/iraa-economy-fan.png",
+      alt: "Kamar Iraa Economy Fan yang bersih, nyaman, dan paling terjangkau",
+      roomName: "Iraa Economy Fan",
+      capacity: 2,
+    },
+  ];
 
   return (
     <section className="py-24 md:py-32 bg-[#F7F4EE] text-hotel-charcoal">

@@ -21,14 +21,16 @@ interface HeaderProps {
   initialTransparent?: boolean;
 }
 
-export function Header({ initialTransparent = true }: HeaderProps) {
+export function Header({ initialTransparent = true }: HeaderProps = {}) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
+      // On homepage, stay in hero dark-glass for first 350px, then morph to glass kecoklatan
+      const threshold = pathname === "/" ? 350 : 20;
+      if (window.scrollY > threshold) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -38,58 +40,56 @@ export function Header({ initialTransparent = true }: HeaderProps) {
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [pathname]);
 
   const waUrl = buildWhatsAppGeneralInquiryUrl();
-  const showDarkTheme = initialTransparent && !isScrolled;
+
+  // Glass mode on Hero top, Warm Brownish Bronze Glass (Glass Kecoklatan) when scrolled or on subpages
+  const isGlassHero = pathname === "/" && !isScrolled && initialTransparent;
 
   return (
     <>
       <header
+        style={{
+          backgroundColor: isGlassHero
+            ? "rgba(10, 10, 10, 0.52)"
+            : "rgba(43, 33, 23, 0.94)",
+          borderBottomColor: isGlassHero
+            ? "rgba(255, 255, 255, 0.20)"
+            : "rgba(164, 134, 98, 0.45)",
+        }}
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out",
-          showDarkTheme
-            ? "bg-gradient-to-b from-black/75 via-black/35 to-transparent py-5 sm:py-6 text-white"
-            : "bg-[#F7F4EE]/98 backdrop-blur-md py-3 sm:py-3.5 shadow-md border-b border-[#E2DACF] text-hotel-charcoal"
+          "fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b text-white transition-all duration-300 ease-in-out shadow-xl",
+          isGlassHero ? "py-4 sm:py-5" : "py-3 sm:py-3.5 shadow-2xl"
         )}
       >
         <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 flex items-center justify-between">
-          {/* Logo / Brand Name */}
+          {/* Logo / Brand Name — White + Gold Lotus Emblem */}
           <Link
             href="/"
             className="flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hotel-bronze py-1"
           >
             <div className="relative w-10 h-10 sm:w-11 sm:h-11 shrink-0">
               <Image
-                src={showDarkTheme ? "/images/logo-white.png" : "/images/logo.png"}
+                src="/images/logo-white.png"
                 alt="Logo Resmi Iraa Hotel Malioboro"
                 fill
                 sizes="44px"
-                className="object-contain transition-opacity duration-300"
+                className="object-contain"
                 priority
               />
             </div>
             <div className="flex flex-col text-left">
-              <span
-                className={cn(
-                  "font-serif text-lg sm:text-xl tracking-wider uppercase font-semibold leading-tight transition-colors",
-                  showDarkTheme ? "text-white" : "text-hotel-charcoal group-hover:text-hotel-bronze"
-                )}
-              >
+              <span className="font-serif text-lg sm:text-xl tracking-wider uppercase font-semibold leading-tight text-white group-hover:text-hotel-bronze-light transition-colors">
                 Iraa Hotel
               </span>
-              <span
-                className={cn(
-                  "text-[9px] uppercase tracking-mega -mt-0.5 font-medium transition-colors",
-                  showDarkTheme ? "text-hotel-cream" : "text-hotel-bronze"
-                )}
-              >
+              <span className="text-[9px] uppercase tracking-mega -mt-0.5 font-medium text-hotel-bronze-light">
                 Malioboro Yogyakarta
               </span>
             </div>
           </Link>
 
-          {/* Desktop Navigation Links */}
+          {/* Desktop Navigation Links — Crisp High-Contrast Typography */}
           <nav className="hidden lg:flex items-center space-x-8">
             {NAV_LINKS.map((link) => {
               const isActive = pathname === link.href;
@@ -99,15 +99,11 @@ export function Header({ initialTransparent = true }: HeaderProps) {
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    "text-xs uppercase tracking-mega font-medium transition-colors py-1 relative",
-                    "after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-[1.5px] after:transition-all after:duration-300",
-                    showDarkTheme
-                      ? isActive
-                        ? "text-white after:w-full after:bg-hotel-cream"
-                        : "text-neutral-200 hover:text-white after:w-0 hover:after:w-full after:bg-white"
-                      : isActive
-                        ? "text-hotel-bronze font-semibold after:w-full after:bg-hotel-bronze"
-                        : "text-hotel-charcoal hover:text-hotel-bronze after:w-0 hover:after:w-full after:bg-hotel-bronze"
+                    "text-xs uppercase tracking-mega font-medium transition-colors py-1.5 relative",
+                    "after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:transition-all after:duration-300",
+                    isActive
+                      ? "text-hotel-bronze-light font-semibold after:w-full after:bg-hotel-bronze-light"
+                      : "text-white hover:text-hotel-bronze-light after:w-0 hover:after:w-full after:bg-hotel-bronze-light"
                   )}
                 >
                   {link.label}
@@ -123,14 +119,9 @@ export function Header({ initialTransparent = true }: HeaderProps) {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Reservasi Iraa Hotel melalui WhatsApp"
-              className={cn(
-                "hidden sm:inline-flex items-center gap-2 px-5 py-2.5 text-[11px] uppercase tracking-mega font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 active:scale-95 shadow-sm",
-                showDarkTheme
-                  ? "bg-white text-hotel-charcoal hover:bg-hotel-bronze hover:text-white focus-visible:ring-white"
-                  : "bg-hotel-charcoal text-hotel-ivory hover:bg-hotel-bronze focus-visible:ring-hotel-bronze"
-              )}
+              className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 text-[11px] uppercase tracking-mega font-medium bg-hotel-bronze text-white hover:bg-hotel-bronze-dark transition-all duration-300 min-h-[44px] shadow-md btn-shimmer active:scale-95"
             >
-              <MessageSquare className="w-3.5 h-3.5 text-hotel-bronze-light" />
+              <MessageSquare className="w-3.5 h-3.5" />
               <span>Reservasi via WhatsApp</span>
             </a>
 
@@ -140,12 +131,7 @@ export function Header({ initialTransparent = true }: HeaderProps) {
               onClick={() => setIsMobileMenuOpen(true)}
               aria-label="Buka navigasi utama"
               aria-expanded={isMobileMenuOpen}
-              className={cn(
-                "p-2.5 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hotel-bronze lg:hidden active:scale-95",
-                showDarkTheme
-                  ? "text-white hover:bg-white/10"
-                  : "text-hotel-charcoal hover:bg-neutral-200/50"
-              )}
+              className="p-2.5 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-sm transition-colors text-white hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hotel-bronze lg:hidden active:scale-95"
             >
               <Menu className="w-6 h-6" />
             </button>
