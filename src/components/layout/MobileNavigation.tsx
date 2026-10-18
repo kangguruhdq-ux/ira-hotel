@@ -4,7 +4,8 @@ import React, { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
 import Image from "next/image";
-import { X, MessageSquare, MapPin, ArrowRight, Clock, Phone } from "lucide-react";
+import { X, MapPin, ArrowRight, Clock, Phone } from "lucide-react";
+import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { HOTEL_CONFIG } from "@/data/hotel";
 import { buildWhatsAppGeneralInquiryUrl } from "@/lib/whatsapp";
 import { cn } from "@/lib/utils";
@@ -66,12 +67,12 @@ export function MobileNavigation({
     }
   }, [isOpen]);
 
-  const handleSmoothClose = () => {
+  const handleSmoothClose = React.useCallback(() => {
     setIsVisible(false);
     setTimeout(() => {
       onClose();
     }, 300);
-  };
+  }, [onClose]);
 
   // Close on Escape key press
   useEffect(() => {
@@ -82,7 +83,7 @@ export function MobileNavigation({
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isOpen]);
+  }, [isOpen, handleSmoothClose]);
 
   if (!mounted || (!isOpen && !isRendered)) return null;
 
@@ -225,7 +226,7 @@ export function MobileNavigation({
           rel="noopener noreferrer"
           className="w-full flex items-center justify-center gap-2 py-3 px-6 text-xs uppercase tracking-mega font-medium bg-hotel-bronze text-white hover:bg-hotel-bronze-dark transition-all duration-300 min-h-[46px] shadow-lg active:scale-95 btn-shimmer"
         >
-          <MessageSquare className="w-4 h-4" />
+          <WhatsAppIcon className="w-4 h-4 text-white" />
           <span>Reservasi via WhatsApp</span>
         </a>
 

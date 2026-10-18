@@ -7,8 +7,8 @@ import {
   Car,
   Sparkles,
   Tv,
-  MessageSquare,
 } from "lucide-react";
+import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { HOTEL_AMENITIES } from "@/data/amenities";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -22,7 +22,7 @@ const ICON_MAP: Record<string, React.ElementType> = {
   Car,
   Sparkles,
   Tv,
-  MessageSquare,
+  MessageSquare: WhatsAppIcon,
 };
 
 export function AmenitiesSection() {

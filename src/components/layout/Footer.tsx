@@ -1,7 +1,8 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { MapPin, Phone, Clock, MessageSquare, ExternalLink } from "lucide-react";
+import { MapPin, Phone, Clock, ExternalLink } from "lucide-react";
+import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { HOTEL_CONFIG } from "@/data/hotel";
 import { buildWhatsAppGeneralInquiryUrl } from "@/lib/whatsapp";
 import { Container } from "@/components/ui/Container";
@@ -131,7 +132,7 @@ export function Footer() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 w-full py-3.5 px-4 text-xs uppercase tracking-mega font-medium bg-hotel-bronze text-white hover:bg-hotel-bronze-dark transition-all duration-300 min-h-[44px]"
             >
-              <MessageSquare className="w-4 h-4" />
+              <WhatsAppIcon className="w-4 h-4 text-white" />
               <span>Chat WhatsApp Kami</span>
             </a>
             <a

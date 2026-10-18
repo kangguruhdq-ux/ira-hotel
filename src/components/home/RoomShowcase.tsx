@@ -3,7 +3,8 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { MessageSquare, Maximize2, ArrowRight } from "lucide-react";
+import { Maximize2, ArrowRight } from "lucide-react";
+import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { ROOMS_DATA } from "@/data/rooms";
 import { RoomItem } from "@/types/room";
 import { formatRupiah, cn } from "@/lib/utils";
@@ -152,7 +153,7 @@ export function RoomShowcase() {
                       rel="noopener noreferrer"
                       className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-xs uppercase tracking-mega font-medium bg-hotel-charcoal text-white hover:bg-hotel-bronze transition-all duration-300 min-h-[44px]"
                     >
-                      <MessageSquare className="w-4 h-4 text-hotel-bronze-light" />
+                      <WhatsAppIcon className="w-4 h-4 text-hotel-bronze-light" />
                       <span>Tanya via WhatsApp</span>
                     </a>
 

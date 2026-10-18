@@ -3,7 +3,8 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { MessageSquare, ArrowDown, ChevronRight } from "lucide-react";
+import { ArrowDown, ChevronRight } from "lucide-react";
+import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { buildWhatsAppGeneralInquiryUrl } from "@/lib/whatsapp";
 import { Container } from "@/components/ui/Container";
 import { cn } from "@/lib/utils";
@@ -121,7 +122,7 @@ export function Hero() {
               rel="noopener noreferrer"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 text-xs uppercase tracking-mega font-medium bg-hotel-bronze text-white hover:bg-hotel-bronze-dark transition-all duration-300 min-h-[48px] shadow-lg btn-shimmer active:scale-95"
             >
-              <MessageSquare className="w-4 h-4" />
+              <WhatsAppIcon className="w-4 h-4 text-white" />
               <span>Reservasi via WhatsApp</span>
             </a>
           </div>

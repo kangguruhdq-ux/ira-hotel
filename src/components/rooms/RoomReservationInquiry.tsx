@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { MessageSquare, Info } from "lucide-react";
+import { Info } from "lucide-react";
+import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { RoomItem } from "@/types/room";
 import { buildWhatsAppReservationUrl } from "@/lib/whatsapp";
 import { formatRupiah } from "@/lib/utils";
@@ -167,7 +168,7 @@ export function RoomReservationInquiry({
           type="submit"
           className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-4 text-xs uppercase tracking-mega font-medium bg-hotel-charcoal text-white hover:bg-hotel-bronze transition-all duration-300 min-h-[48px]"
         >
-          <MessageSquare className="w-4 h-4 text-hotel-bronze-light" />
+          <WhatsAppIcon className="w-4 h-4 text-hotel-bronze-light" />
           <span>Hubungi Pengelola via WhatsApp</span>
         </button>
       </form>

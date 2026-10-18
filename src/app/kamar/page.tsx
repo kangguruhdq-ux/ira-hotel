@@ -8,7 +8,8 @@ import { Container } from "@/components/ui/Container";
 import { ROOMS_DATA } from "@/data/rooms";
 import { formatRupiah } from "@/lib/utils";
 import { buildWhatsAppReservationUrl } from "@/lib/whatsapp";
-import { ArrowRight, MessageSquare, Bed, Users } from "lucide-react";
+import { ArrowRight, Bed, Users } from "lucide-react";
+import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 
 export const metadata: Metadata = {
   title: "Pilihan Kamar & Tarif | Iraa Hotel Yogyakarta",
@@ -26,9 +27,9 @@ export default function KamarPage() {
     <div className="min-h-screen bg-[#F7F4EE] flex flex-col">
       <Header initialTransparent={false} />
 
-      <main className="flex-1 pt-28 pb-24">
+      <main className="flex-1 pb-24">
         {/* Header Hero Banner for Catalogue */}
-        <section className="bg-hotel-charcoal text-white py-16 sm:py-20 mb-16 border-b border-white/10">
+        <section className="bg-hotel-charcoal text-white pt-28 pb-16 sm:pb-20 mb-16 border-b border-white/10">
           <Container size="default" className="text-center space-y-4">
             <span className="text-[10px] sm:text-xs uppercase tracking-mega text-hotel-bronze-light font-medium block">
               Akomodasi & Reservasi
@@ -129,7 +130,7 @@ export default function KamarPage() {
                           rel="noopener noreferrer"
                           className="inline-flex items-center justify-center gap-1.5 py-3 px-3 text-[11px] uppercase tracking-wider font-medium bg-hotel-bronze text-white hover:bg-hotel-bronze-dark transition-colors"
                         >
-                          <MessageSquare className="w-3 h-3" />
+                          <WhatsAppIcon className="w-3.5 h-3.5 text-white" />
                           <span>Pesan WA</span>
                         </a>
                       </div>

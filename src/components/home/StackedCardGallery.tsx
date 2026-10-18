@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight, Maximize2, Layers, Grid } from "lucide-react";
+import { ChevronLeft, ChevronRight, Maximize2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export interface GalleryPhoto {
@@ -35,8 +35,6 @@ export function StackedCardGallery({
   const prevCard = () => {
     setActiveIndex((prev) => (prev - 1 + total) % total);
   };
-
-  const activePhoto = photos[activeIndex];
 
   // We display up to 4 cards in the visible stack
   const stackOffsets = [0, 1, 2, 3];

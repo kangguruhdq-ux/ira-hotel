@@ -15,11 +15,11 @@ import {
   Car,
   Sparkles,
   Tv,
-  MessageSquare,
   Clock,
   ShieldCheck,
   Coffee,
 } from "lucide-react";
+import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 
 export const metadata: Metadata = {
   title: "Fasilitas & Layanan | Iraa Hotel Malioboro",
@@ -35,7 +35,7 @@ const ICON_MAP: Record<string, React.ElementType> = {
   Car,
   Sparkles,
   Tv,
-  MessageSquare,
+  MessageSquare: WhatsAppIcon,
 };
 
 export default function FasilitasPage() {
@@ -45,9 +45,9 @@ export default function FasilitasPage() {
     <div className="min-h-screen bg-[#F7F4EE] flex flex-col selection:bg-hotel-bronze selection:text-white">
       <Header initialTransparent={false} />
 
-      <main className="flex-1 pt-28 pb-24">
+      <main className="flex-1 pb-24">
         {/* Banner Section */}
-        <section className="bg-hotel-charcoal text-white py-20 border-b border-white/10 relative overflow-hidden">
+        <section className="bg-hotel-charcoal text-white pt-28 pb-20 border-b border-white/10 relative overflow-hidden">
           <div className="absolute inset-0 bg-watermark-lotus opacity-10" />
           <Container size="default" className="relative z-10 text-center space-y-4">
             <span className="text-[10px] sm:text-xs uppercase tracking-mega text-hotel-bronze-light font-medium block">
@@ -141,7 +141,7 @@ export default function FasilitasPage() {
                   rel="noopener noreferrer"
                   className="btn-luxury-bronze min-h-[44px]"
                 >
-                  <MessageSquare className="w-4 h-4 mr-2" />
+                  <WhatsAppIcon className="w-4 h-4 mr-2" />
                   <span>Konsultasi via WhatsApp</span>
                 </a>
               </div>

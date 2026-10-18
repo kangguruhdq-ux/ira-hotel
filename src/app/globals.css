@@ -32,6 +32,32 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    scrollbar-width: thin;
+    scrollbar-color: #A48662 #F7F4EE;
+  }
+
+  /* Custom Luxury Scrollbar (WebKit / Blink) */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #F7F4EE;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #A48662;
+    border-radius: 9999px;
+    border: 2px solid #F7F4EE;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #7F6343;
+  }
+
+  ::-webkit-scrollbar-thumb:active {
+    background: #5E472D;
   }
 
   body {

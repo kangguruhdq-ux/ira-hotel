@@ -4,7 +4,8 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, MessageSquare } from "lucide-react";
+import { Menu } from "lucide-react";
+import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { buildWhatsAppGeneralInquiryUrl } from "@/lib/whatsapp";
 import { MobileNavigation } from "./MobileNavigation";
 import { cn } from "@/lib/utils";
@@ -121,7 +122,7 @@ export function Header({ initialTransparent = true }: HeaderProps = {}) {
               aria-label="Reservasi Iraa Hotel melalui WhatsApp"
               className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 text-[11px] uppercase tracking-mega font-medium bg-hotel-bronze text-white hover:bg-hotel-bronze-dark transition-all duration-300 min-h-[44px] shadow-md btn-shimmer active:scale-95"
             >
-              <MessageSquare className="w-3.5 h-3.5" />
+              <WhatsAppIcon className="w-4 h-4 text-white" />
               <span>Reservasi via WhatsApp</span>
             </a>
 

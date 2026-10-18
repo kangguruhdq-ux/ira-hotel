@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import { MessageSquare, Phone, MapPin, Clock } from "lucide-react";
+import { Phone, MapPin, Clock } from "lucide-react";
+import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { HOTEL_CONFIG } from "@/data/hotel";
 import { buildWhatsAppGeneralInquiryUrl } from "@/lib/whatsapp";
 import { Container } from "@/components/ui/Container";
@@ -60,7 +61,7 @@ export function ReservationCTA() {
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2.5 w-full py-4 px-6 text-xs uppercase tracking-mega font-medium bg-hotel-bronze text-white hover:bg-hotel-bronze-dark transition-all duration-300 min-h-[48px] shadow-lg"
           >
-            <MessageSquare className="w-4 h-4" />
+            <WhatsAppIcon className="w-4 h-4 text-white" />
             <span>Kirim Pesan WhatsApp Sekarang</span>
           </a>
 
