@@ -11,6 +11,7 @@ import { buildWhatsAppReservationUrl } from "@/lib/whatsapp";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { RoomModalGallery } from "@/components/rooms/RoomModalGallery";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 export function RoomShowcase() {
   const [activeGalleryRoom, setActiveGalleryRoom] = useState<RoomItem | null>(null);
@@ -35,8 +36,9 @@ export function RoomShowcase() {
             });
 
             return (
-              <div
+              <ScrollReveal
                 key={room.id}
+                direction={isReversed ? "right" : "left"}
                 className={cn(
                   "grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center border-b border-[#E2DACF]/80 pb-20 last:border-b-0 last:pb-0"
                 )}
@@ -163,7 +165,7 @@ export function RoomShowcase() {
                     </Link>
                   </div>
                 </div>
-              </div>
+              </ScrollReveal>
             );
           })}
         </div>

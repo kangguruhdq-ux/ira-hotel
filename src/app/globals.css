@@ -2,12 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ==========================================================================
+   IRAA HOTEL MALIOBORO — LUXURY HOSPITALITY ANIMATION & DESIGN TOKENS
+   Inspired by five-star editorial resort benchmarks.
+   GPU-accelerated, mobile-first, and reduced-motion compliant.
+   ========================================================================== */
+
 :root {
   --color-ivory: #F7F4EE;
   --color-cream: #EAE2D5;
+  --color-cream-light: #F2EBE0;
   --color-charcoal: #24231F;
+  --color-charcoal-dark: #181715;
+  --color-charcoal-muted: #4A4740;
   --color-bronze: #A48662;
+  --color-bronze-light: #C7AB88;
   --color-bronze-dark: #7F6343;
+  --color-border: #E2DACF;
+  --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 @layer base {
@@ -17,8 +31,27 @@
     color: #24231F;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 
+  body {
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  /* Selection styling */
+  ::selection {
+    background-color: #A48662;
+    color: #FFFFFF;
+  }
+
+  /* Accessible focus rings */
+  :focus-visible {
+    outline: 2px solid #A48662;
+    outline-offset: 3px;
+  }
+
+  /* Respect prefers-reduced-motion for accessibility */
   @media (prefers-reduced-motion: reduce) {
     html {
       scroll-behavior: auto;
@@ -32,31 +65,553 @@
       scroll-behavior: auto !important;
     }
   }
+}
 
-  ::selection {
-    background-color: #A48662;
-    color: #FFFFFF;
+/* ==========================================================================
+   KEYFRAME DEFINITIONS (60fps GPU Accelerated)
+   ========================================================================== */
+
+/* 1. Gentle Fade Transitions */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
   }
-
-  /* Accessible focus indicators */
-  :focus-visible {
-    outline: 2px solid #A48662;
-    outline-offset: 3px;
+  100% {
+    opacity: 1;
   }
 }
 
-/* Custom luxury button and border utility classes */
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* 2. Editorial Upward Reveal with Spring Ease */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 32px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -28px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* 3. Lateral Editorial Entrances */
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translate3d(-36px, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translate3d(36px, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* 4. Hero Staggered Keyframes */
+@keyframes heroKickerReveal {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 16px, 0) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes heroHeadlineReveal {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes heroDescReveal {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes heroButtonsReveal {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes heroBadgesReveal {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 28px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* 5. Ken Burns Slow Photographic Zoom */
+@keyframes kenBurnsSlow {
+  0% {
+    transform: scale(1.02) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: scale(1.08) translate3d(-1%, -1%, 0);
+  }
+  100% {
+    transform: scale(1.02) translate3d(0, 0, 0);
+  }
+}
+
+@keyframes kenBurnsZoomOut {
+  0% {
+    transform: scale(1.12);
+  }
+  100% {
+    transform: scale(1.02);
+  }
+}
+
+/* 6. Shimmer & Bronze Glow Ambient */
+@keyframes shimmerBronze {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes breatheGlow {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.65;
+    transform: scale(1.06);
+  }
+}
+
+@keyframes pulseSubtle {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.03);
+    opacity: 0.92;
+  }
+}
+
+/* 7. Border Draw & Line Expansions */
+@keyframes drawBorderHorizontal {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes drawBorderVertical {
+  0% {
+    height: 0%;
+  }
+  100% {
+    height: 100%;
+  }
+}
+
+/* 8. Slide Progress Timer Bar */
+@keyframes slideProgressBar {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+/* 9. Mobile Menu Curtain Slide & Stagger */
+@keyframes curtainSlideDown {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes curtainSlideUp {
+  0% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+}
+
+@keyframes menuDrawerRight {
+  0% {
+    transform: translate3d(100%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes menuItemSlideIn {
+  0% {
+    opacity: 0;
+    transform: translate3d(32px, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* 10. Page Transition Keyframes */
+@keyframes pageEnterFade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes pageCurtainReveal {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+/* 11. Subtle Parallax Float */
+@keyframes floatSubtle {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -8px, 0);
+  }
+}
+
+/* ==========================================================================
+   ANIMATION UTILITY CLASSES
+   ========================================================================== */
+
+/* Page Level Animations — Pure Opacity to preserve viewport fixed positioning */
+.animate-page-enter {
+  animation: pageEnterFade 0.35s ease-out;
+}
+
+/* Hero First-Time Entry Suite */
+.animate-hero-kicker {
+  animation: heroKickerReveal 0.8s var(--ease-editorial) 0.15s both;
+  will-change: transform, opacity;
+}
+
+.animate-hero-title {
+  animation: heroHeadlineReveal 1s var(--ease-editorial) 0.3s both;
+  will-change: transform, opacity;
+}
+
+.animate-hero-desc {
+  animation: heroDescReveal 0.9s var(--ease-editorial) 0.5s both;
+  will-change: transform, opacity;
+}
+
+.animate-hero-cta {
+  animation: heroButtonsReveal 0.9s var(--ease-editorial) 0.7s both;
+  will-change: transform, opacity;
+}
+
+.animate-hero-badges {
+  animation: heroBadgesReveal 0.9s var(--ease-editorial) 0.9s both;
+  will-change: transform, opacity;
+}
+
+.animate-hero-scroll {
+  animation: fadeIn 1s ease-out 1.2s both;
+}
+
+/* Hero Carousel Crossfade & Zoom */
+.hero-carousel-slide {
+  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), transform 6.5s ease-out;
+  will-change: opacity, transform;
+}
+
+.hero-ken-burns {
+  animation: kenBurnsSlow 24s infinite alternate ease-in-out;
+  will-change: transform;
+}
+
+/* Slide timer progress indicator */
+.animate-timer-bar {
+  animation: slideProgressBar 6.5s linear infinite;
+  transform-origin: left;
+}
+
+/* ==========================================================================
+   SCROLL REVEAL UTILITIES (INTERSECTION OBSERVER DRIVEN)
+   ========================================================================== */
+
+.reveal-init {
+  opacity: 0;
+  transform: translate3d(0, 36px, 0);
+  transition: opacity 0.85s var(--ease-editorial), transform 0.85s var(--ease-editorial);
+  will-change: opacity, transform;
+}
+
+.reveal-init-left {
+  opacity: 0;
+  transform: translate3d(-36px, 0, 0);
+  transition: opacity 0.85s var(--ease-editorial), transform 0.85s var(--ease-editorial);
+  will-change: opacity, transform;
+}
+
+.reveal-init-right {
+  opacity: 0;
+  transform: translate3d(36px, 0, 0);
+  transition: opacity 0.85s var(--ease-editorial), transform 0.85s var(--ease-editorial);
+  will-change: opacity, transform;
+}
+
+.reveal-init-zoom {
+  opacity: 0;
+  transform: scale(0.94);
+  transition: opacity 0.9s var(--ease-editorial), transform 0.9s var(--ease-editorial);
+  will-change: opacity, transform;
+}
+
+/* Activated State via IntersectionObserver */
+.reveal-visible {
+  opacity: 1 !important;
+  transform: translate3d(0, 0, 0) scale(1) !important;
+}
+
+/* Staggered Delay Utilities */
+.stagger-1 {
+  transition-delay: 100ms !important;
+  animation-delay: 100ms !important;
+}
+.stagger-2 {
+  transition-delay: 200ms !important;
+  animation-delay: 200ms !important;
+}
+.stagger-3 {
+  transition-delay: 300ms !important;
+  animation-delay: 300ms !important;
+}
+.stagger-4 {
+  transition-delay: 400ms !important;
+  animation-delay: 400ms !important;
+}
+.stagger-5 {
+  transition-delay: 500ms !important;
+  animation-delay: 500ms !important;
+}
+.stagger-6 {
+  transition-delay: 600ms !important;
+  animation-delay: 600ms !important;
+}
+.stagger-7 {
+  transition-delay: 700ms !important;
+  animation-delay: 700ms !important;
+}
+.stagger-8 {
+  transition-delay: 800ms !important;
+  animation-delay: 800ms !important;
+}
+
+/* ==========================================================================
+   MOBILE MENU ULTRA-LUXURY ANIMATIONS
+   ========================================================================== */
+
+.drawer-curtain-open {
+  animation: curtainSlideDown 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.drawer-curtain-close {
+  animation: curtainSlideUp 0.4s cubic-bezier(0.7, 0, 0.84, 0) forwards;
+}
+
+.drawer-slide-right {
+  animation: menuDrawerRight 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.menu-item-enter {
+  animation: menuItemSlideIn 0.6s var(--ease-editorial) both;
+}
+
+/* ==========================================================================
+   LUXURY HOVER & MICRO-INTERACTIONS
+   ========================================================================== */
+
+/* Magnetic Bronze Hover */
+.luxury-hover-card {
+  transition: transform 0.45s var(--ease-editorial), box-shadow 0.45s var(--ease-editorial), border-color 0.45s ease;
+}
+
+.luxury-hover-card:hover {
+  transform: translate3d(0, -6px, 0);
+  box-shadow: 0 16px 36px -12px rgba(36, 35, 31, 0.12);
+  border-color: #A48662;
+}
+
+/* Image Slow Zoom on Hover */
+.image-zoom-container {
+  overflow: hidden;
+}
+
+.image-zoom-container img {
+  transition: transform 1s var(--ease-editorial), filter 0.8s ease;
+  will-change: transform;
+}
+
+.image-zoom-container:hover img {
+  transform: scale(1.06);
+}
+
+/* Elegant Expandable Underline */
+.editorial-link {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 2px;
+}
+
+.editorial-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 1px;
+  background-color: currentColor;
+  transition: width 0.35s var(--ease-editorial);
+}
+
+.editorial-link:hover::after {
+  width: 100%;
+}
+
+/* Shimmer Bronze Text & Buttons */
+.shimmer-text {
+  background: linear-gradient(
+    90deg,
+    #A48662 0%,
+    #EAE2D5 50%,
+    #A48662 100%
+  );
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shimmerBronze 6s linear infinite;
+}
+
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shimmer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.25),
+    transparent
+  );
+  transition: left 0.75s ease;
+}
+
+.btn-shimmer:hover::before {
+  left: 100%;
+}
+
+/* Subtle Breathing Glow for Badges */
+.badge-ambient-glow {
+  box-shadow: 0 0 16px rgba(164, 134, 98, 0.35);
+  animation: pulseSubtle 3.5s infinite ease-in-out;
+}
+
+/* Smooth Accordion Trigger */
+.accordion-content {
+  transition: max-height 0.4s var(--ease-editorial), opacity 0.35s ease;
+}
+
+/* ==========================================================================
+   BUTTON & TYPOGRAPHY SYSTEM
+   ========================================================================== */
+
 @layer components {
   .btn-luxury-primary {
-    @apply inline-flex items-center justify-center px-7 py-3.5 text-xs uppercase tracking-mega font-medium transition-all duration-300 bg-hotel-charcoal text-hotel-ivory hover:bg-hotel-bronze focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hotel-bronze active:scale-[0.99];
+    @apply inline-flex items-center justify-center px-7 py-3.5 text-xs uppercase tracking-mega font-medium transition-all duration-300 bg-hotel-charcoal text-hotel-ivory hover:bg-hotel-bronze focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hotel-bronze active:scale-[0.99] min-h-[44px];
   }
 
   .btn-luxury-outline {
-    @apply inline-flex items-center justify-center px-7 py-3.5 text-xs uppercase tracking-mega font-medium transition-all duration-300 border border-hotel-charcoal text-hotel-charcoal hover:bg-hotel-charcoal hover:text-hotel-ivory focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hotel-charcoal active:scale-[0.99];
+    @apply inline-flex items-center justify-center px-7 py-3.5 text-xs uppercase tracking-mega font-medium transition-all duration-300 border border-hotel-charcoal text-hotel-charcoal hover:bg-hotel-charcoal hover:text-hotel-ivory focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hotel-charcoal active:scale-[0.99] min-h-[44px];
   }
 
   .btn-luxury-bronze {
-    @apply inline-flex items-center justify-center px-7 py-3.5 text-xs uppercase tracking-mega font-medium transition-all duration-300 bg-hotel-bronze text-white hover:bg-hotel-bronze-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hotel-bronze active:scale-[0.99];
+    @apply inline-flex items-center justify-center px-7 py-3.5 text-xs uppercase tracking-mega font-medium transition-all duration-300 bg-hotel-bronze text-white hover:bg-hotel-bronze-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hotel-bronze active:scale-[0.99] min-h-[44px];
   }
 
   .section-label {
@@ -67,3 +622,76 @@
     @apply font-serif text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight text-hotel-charcoal leading-[1.2];
   }
 }
+
+/* ==========================================================================
+   EXPANDED ANIMATION UTILITY PRESETS & DECORATIVE FLOURISHES (600+ LINES)
+   ========================================================================== */
+
+/* Float animation presets */
+.animate-float-slow {
+  animation: floatSubtle 6s ease-in-out infinite;
+}
+
+.animate-breathe {
+  animation: breatheGlow 4s ease-in-out infinite;
+}
+
+/* Border animation reveal */
+.border-reveal-top {
+  position: relative;
+}
+
+.border-reveal-top::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1px;
+  background-color: var(--color-bronze);
+  animation: drawBorderHorizontal 0.8s var(--ease-editorial) forwards;
+}
+
+/* Smooth Ken Burns Variations */
+.ken-burns-pan-left {
+  animation: kenBurnsSlow 20s ease-in-out infinite;
+}
+
+.ken-burns-pan-right {
+  animation: kenBurnsZoomOut 18s ease-in-out infinite alternate;
+}
+
+/* Mobile Touch Active States */
+@media (hover: none) {
+  .active-touch-scale:active {
+    transform: scale(0.98);
+    transition: transform 0.15s ease;
+  }
+}
+
+/* Glassmorphism restrained accents */
+.luxury-glass-panel {
+  background: rgba(24, 23, 21, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.luxury-glass-panel-light {
+  background: rgba(247, 244, 238, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(164, 134, 98, 0.2);
+}
+
+/* Lotus Watermark Background Pattern */
+.bg-watermark-lotus {
+  background-image: radial-gradient(circle at 50% 50%, rgba(164, 134, 98, 0.08) 0%, transparent 70%);
+}
+
+/* Refined Typography Spacing for Indonesian Editorial Copy */
+.prose-hospitality {
+  line-height: 1.85;
+  letter-spacing: -0.01em;
+}
+
+/* End of custom design tokens and luxury motion library */

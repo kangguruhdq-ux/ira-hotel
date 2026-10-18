@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { HOTEL_CONFIG } from "@/data/hotel";
 import { cn } from "@/lib/utils";
 
@@ -54,14 +55,16 @@ export function FaqSection() {
   return (
     <section id="faq" className="py-24 md:py-32 bg-hotel-cream/20 text-hotel-charcoal border-b border-[#E2DACF]/60">
       <Container size="narrow">
-        <SectionHeading
-          label="Informasi Penting"
-          title="Pertanyaan yang Sering Diajukan"
-          description="Rangkuman informasi terverifikasi mengenai ketentuan menginap, proses reservasi, dan fasilitas di Iraa Hotel."
-          align="center"
-        />
+        <ScrollReveal direction="up">
+          <SectionHeading
+            label="Informasi Penting"
+            title="Pertanyaan yang Sering Diajukan"
+            description="Rangkuman informasi terverifikasi mengenai ketentuan menginap, proses reservasi, dan fasilitas di Iraa Hotel."
+            align="center"
+          />
+        </ScrollReveal>
 
-        <div className="space-y-3">
+        <ScrollReveal direction="up" delay={2} className="space-y-3">
           {FAQS.map((faq, idx) => {
             const isOpen = openIndex === idx;
 
@@ -95,7 +98,7 @@ export function FaqSection() {
               </div>
             );
           })}
-        </div>
+        </ScrollReveal>
       </Container>
     </section>
   );

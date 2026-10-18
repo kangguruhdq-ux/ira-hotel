@@ -4,22 +4,25 @@ import { HOTEL_CONFIG } from "@/data/hotel";
 import { DESTINATIONS_DATA } from "@/data/destinations";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 export function LocationSection() {
   return (
     <section id="lokasi" className="py-24 md:py-32 bg-hotel-charcoal text-hotel-ivory relative overflow-hidden">
       <Container size="default">
-        <SectionHeading
-          label="Lokasi & Aksesibilitas"
-          title="Akses Mudah Menuju Titik Penting Yogyakarta"
-          description="Iraa Hotel berada di lokasi yang sangat terjangkau, memudahkan mobilitas Anda dari dan menuju stasiun kereta, sentra belanja Malioboro, serta cagar budaya istana."
-          align="center"
-          theme="dark"
-        />
+        <ScrollReveal direction="up">
+          <SectionHeading
+            label="Lokasi & Aksesibilitas"
+            title="Akses Mudah Menuju Titik Penting Yogyakarta"
+            description="Iraa Hotel berada di lokasi yang sangat terjangkau, memudahkan mobilitas Anda dari dan menuju stasiun kereta, sentra belanja Malioboro, serta cagar budaya istana."
+            align="center"
+            theme="dark"
+          />
+        </ScrollReveal>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left: Travel Destinations List (Editorial Cards) */}
-          <div className="lg:col-span-7 space-y-4">
+          <ScrollReveal direction="left" className="lg:col-span-7 space-y-4">
             <div className="p-4 bg-white/5 border border-white/10 text-xs text-neutral-300 flex items-start gap-3">
               <Navigation className="w-4 h-4 text-hotel-bronze-light shrink-0 mt-0.5" />
               <p>
@@ -68,10 +71,10 @@ export function LocationSection() {
                 );
               })}
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* Right: Map Information Card & Direct Google Maps CTA */}
-          <div className="lg:col-span-5 bg-white/5 border border-white/10 p-8 sm:p-10 space-y-6">
+          <ScrollReveal direction="right" delay={1} className="lg:col-span-5 bg-white/5 border border-white/10 p-8 sm:p-10 space-y-6">
             <div className="space-y-2">
               <span className="text-[10px] uppercase tracking-mega text-hotel-bronze-light font-medium block">
                 Petunjuk Arah Resmi
@@ -115,7 +118,7 @@ export function LocationSection() {
                 {HOTEL_CONFIG.mapsUrl}
               </p>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </Container>
     </section>

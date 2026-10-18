@@ -2,26 +2,27 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { ArrowRight, Check } from "lucide-react";
 
 export function HotelIntroduction() {
   return (
-    <section id="tentang-kami" className="py-20 md:py-28 bg-[#F7F4EE] text-hotel-charcoal">
+    <section id="tentang-kami" className="py-20 md:py-28 bg-[#F7F4EE] text-hotel-charcoal overflow-hidden">
       <Container size="default">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left: Asymmetric Photographic Framing */}
-          <div className="lg:col-span-6 relative">
-            <div className="relative aspect-[4/5] sm:aspect-[4/3] lg:aspect-[4/5] overflow-hidden border border-[#E2DACF]">
+          <ScrollReveal direction="left" className="lg:col-span-6 relative">
+            <div className="relative aspect-[4/5] sm:aspect-[4/3] lg:aspect-[4/5] overflow-hidden border border-[#E2DACF] image-zoom-container shadow-sm">
               <Image
                 src="/images/rooms/iraa-deluxe-twin.png"
                 alt="Suasana tenang dan penataan rapi di Iraa Hotel Yogyakarta"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover hover:scale-105 transition-transform duration-700 ease-out"
+                className="object-cover"
               />
             </div>
             {/* Overlapping editorial card */}
-            <div className="hidden sm:block absolute -bottom-6 -right-6 bg-hotel-charcoal text-white p-6 max-w-xs shadow-xl border border-white/10">
+            <div className="hidden sm:block absolute -bottom-6 -right-6 bg-hotel-charcoal text-white p-6 max-w-xs shadow-xl border border-white/10 luxury-glass-panel">
               <span className="text-[10px] uppercase tracking-mega text-hotel-bronze-light block mb-2">
                 Filosofi Layanan
               </span>
@@ -29,10 +30,10 @@ export function HotelIntroduction() {
                 &ldquo;Istirahat yang tenang, pelayanan yang tulus, dan harga yang bersahaja.&rdquo;
               </p>
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* Right: Editorial Narrative */}
-          <div className="lg:col-span-6 space-y-6">
+          <ScrollReveal direction="right" delay={1} className="lg:col-span-6 space-y-6">
             <span className="section-label">Tentang Iraa Hotel</span>
             <h2 className="editorial-title">
               Pilihan Istirahat Nyaman di Jantung Budaya Jogja
@@ -82,14 +83,14 @@ export function HotelIntroduction() {
 
             <div className="pt-6">
               <Link
-                href="#kamar"
+                href="/kamar"
                 className="inline-flex items-center gap-3 text-xs uppercase tracking-mega font-medium text-hotel-charcoal hover:text-hotel-bronze transition-colors group"
               >
                 <span>Lihat 5 Tipe Kamar Kami</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
               </Link>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </Container>
     </section>

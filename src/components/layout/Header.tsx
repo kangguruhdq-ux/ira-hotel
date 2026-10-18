@@ -3,17 +3,18 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { Menu, MessageSquare } from "lucide-react";
 import { buildWhatsAppGeneralInquiryUrl } from "@/lib/whatsapp";
 import { MobileNavigation } from "./MobileNavigation";
 import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
-  { href: "/", label: "Beranda" },
-  { href: "/#kamar", label: "Kamar & Tarif" },
-  { href: "/#fasilitas", label: "Fasilitas" },
-  { href: "/#lokasi", label: "Lokasi" },
-  { href: "/#tentang-kami", label: "Tentang Kami" },
+  { href: "/", label: "Beranda", subtitle: "Halaman Utama", number: "01" },
+  { href: "/kamar", label: "Kamar & Tarif", subtitle: "5 Pilihan Tipe Kamar", number: "02" },
+  { href: "/fasilitas", label: "Fasilitas", subtitle: "Layanan & Fasilitas Hotel", number: "03" },
+  { href: "/lokasi", label: "Lokasi", subtitle: "Akses & Panduan Rute", number: "04" },
+  { href: "/tentang-kami", label: "Tentang Kami", subtitle: "Cerita & Filosofi Layanan", number: "05" },
 ];
 
 interface HeaderProps {
@@ -23,10 +24,11 @@ interface HeaderProps {
 export function Header({ initialTransparent = true }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 40) {
+      if (window.scrollY > 20) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -45,10 +47,10 @@ export function Header({ initialTransparent = true }: HeaderProps) {
     <>
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-40 transition-all duration-500",
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out",
           showDarkTheme
-            ? "bg-gradient-to-b from-black/70 via-black/30 to-transparent py-5 sm:py-6 text-white"
-            : "bg-[#F7F4EE]/95 backdrop-blur-md py-4 shadow-sm border-b border-[#E2DACF]/60 text-hotel-charcoal"
+            ? "bg-gradient-to-b from-black/75 via-black/35 to-transparent py-5 sm:py-6 text-white"
+            : "bg-[#F7F4EE]/98 backdrop-blur-md py-3 sm:py-3.5 shadow-md border-b border-[#E2DACF] text-hotel-charcoal"
         )}
       >
         <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 flex items-center justify-between">
@@ -78,7 +80,7 @@ export function Header({ initialTransparent = true }: HeaderProps) {
               </span>
               <span
                 className={cn(
-                  "text-[9px] uppercase tracking-mega -mt-0.5 font-medium",
+                  "text-[9px] uppercase tracking-mega -mt-0.5 font-medium transition-colors",
                   showDarkTheme ? "text-hotel-cream" : "text-hotel-bronze"
                 )}
               >
@@ -89,20 +91,29 @@ export function Header({ initialTransparent = true }: HeaderProps) {
 
           {/* Desktop Navigation Links */}
           <nav className="hidden lg:flex items-center space-x-8">
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={cn(
-                  "text-xs uppercase tracking-mega font-medium transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] hover:after:w-full after:transition-all after:duration-300",
-                  showDarkTheme
-                    ? "text-neutral-200 hover:text-white after:bg-white"
-                    : "text-hotel-charcoal hover:text-hotel-bronze after:bg-hotel-bronze"
-                )}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {NAV_LINKS.map((link) => {
+              const isActive = pathname === link.href;
+
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={cn(
+                    "text-xs uppercase tracking-mega font-medium transition-colors py-1 relative",
+                    "after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-[1.5px] after:transition-all after:duration-300",
+                    showDarkTheme
+                      ? isActive
+                        ? "text-white after:w-full after:bg-hotel-cream"
+                        : "text-neutral-200 hover:text-white after:w-0 hover:after:w-full after:bg-white"
+                      : isActive
+                        ? "text-hotel-bronze font-semibold after:w-full after:bg-hotel-bronze"
+                        : "text-hotel-charcoal hover:text-hotel-bronze after:w-0 hover:after:w-full after:bg-hotel-bronze"
+                  )}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </nav>
 
           {/* Right Action: WhatsApp CTA & Mobile Hamburger */}
@@ -113,7 +124,7 @@ export function Header({ initialTransparent = true }: HeaderProps) {
               rel="noopener noreferrer"
               aria-label="Reservasi Iraa Hotel melalui WhatsApp"
               className={cn(
-                "hidden sm:inline-flex items-center gap-2 px-5 py-2.5 text-[11px] uppercase tracking-mega font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 active:scale-95",
+                "hidden sm:inline-flex items-center gap-2 px-5 py-2.5 text-[11px] uppercase tracking-mega font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 active:scale-95 shadow-sm",
                 showDarkTheme
                   ? "bg-white text-hotel-charcoal hover:bg-hotel-bronze hover:text-white focus-visible:ring-white"
                   : "bg-hotel-charcoal text-hotel-ivory hover:bg-hotel-bronze focus-visible:ring-hotel-bronze"
@@ -130,7 +141,7 @@ export function Header({ initialTransparent = true }: HeaderProps) {
               aria-label="Buka navigasi utama"
               aria-expanded={isMobileMenuOpen}
               className={cn(
-                "p-2.5 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hotel-bronze lg:hidden",
+                "p-2.5 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hotel-bronze lg:hidden active:scale-95",
                 showDarkTheme
                   ? "text-white hover:bg-white/10"
                   : "text-hotel-charcoal hover:bg-neutral-200/50"

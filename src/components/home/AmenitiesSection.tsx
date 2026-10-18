@@ -12,6 +12,7 @@ import {
 import { HOTEL_AMENITIES } from "@/data/amenities";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 const ICON_MAP: Record<string, React.ElementType> = {
   Wifi,
@@ -28,21 +29,25 @@ export function AmenitiesSection() {
   return (
     <section id="fasilitas" className="py-24 md:py-32 bg-[#F7F4EE] text-hotel-charcoal border-b border-[#E2DACF]/60">
       <Container size="default">
-        <SectionHeading
-          label="Fasilitas & Layanan"
-          title="Kenyamanan Menyeluruh untuk Kebutuhan Anda"
-          description="Seluruh fasilitas di Iraa Hotel dipersiapkan untuk memastikan istirahat Anda tenang, higienis, dan memudahkan aktivitas harian selama di Yogyakarta."
-          align="center"
-        />
+        <ScrollReveal direction="up">
+          <SectionHeading
+            label="Fasilitas & Layanan"
+            title="Kenyamanan Menyeluruh untuk Kebutuhan Anda"
+            description="Seluruh fasilitas di Iraa Hotel dipersiapkan untuk memastikan istirahat Anda tenang, higienis, dan memudahkan aktivitas harian selama di Yogyakarta."
+            align="center"
+          />
+        </ScrollReveal>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {HOTEL_AMENITIES.map((item) => {
+          {HOTEL_AMENITIES.map((item, idx) => {
             const IconComponent = ICON_MAP[item.iconName] || Sparkles;
 
             return (
-              <div
+              <ScrollReveal
                 key={item.id}
-                className="bg-white/70 border border-[#E2DACF] p-8 space-y-4 hover:border-hotel-bronze hover:bg-white transition-all duration-300 group"
+                direction="up"
+                delay={((idx % 4) + 1) as 1 | 2 | 3 | 4}
+                className="bg-white/80 border border-[#E2DACF] p-8 space-y-4 hover:border-hotel-bronze hover:bg-white transition-all duration-300 group luxury-hover-card"
               >
                 <div className="w-12 h-12 bg-hotel-cream/50 text-hotel-bronze flex items-center justify-center group-hover:bg-hotel-charcoal group-hover:text-hotel-bronze-light transition-colors">
                   <IconComponent className="w-6 h-6" />
@@ -53,7 +58,7 @@ export function AmenitiesSection() {
                 <p className="text-xs sm:text-sm text-hotel-charcoal-muted leading-relaxed font-light">
                   {item.description}
                 </p>
-              </div>
+              </ScrollReveal>
             );
           })}
         </div>

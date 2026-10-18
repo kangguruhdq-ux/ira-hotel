@@ -4,6 +4,7 @@ import { MessageSquare, Phone, MapPin, Clock } from "lucide-react";
 import { HOTEL_CONFIG } from "@/data/hotel";
 import { buildWhatsAppGeneralInquiryUrl } from "@/lib/whatsapp";
 import { Container } from "@/components/ui/Container";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 export function ReservationCTA() {
   const waUrl = buildWhatsAppGeneralInquiryUrl();
@@ -23,8 +24,8 @@ export function ReservationCTA() {
       </div>
 
       <Container size="narrow" className="relative z-10 text-center space-y-8">
-        <div className="space-y-4">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 border border-white/20 bg-white/5">
+        <ScrollReveal direction="up" className="space-y-4">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 border border-white/20 bg-white/5 rounded-full">
             <span className="w-1.5 h-1.5 rounded-full bg-hotel-bronze-light" />
             <span className="text-[10px] sm:text-xs uppercase tracking-mega text-hotel-cream font-medium">
               Reservasi Langsung & Mudah
@@ -38,10 +39,10 @@ export function ReservationCTA() {
           <p className="text-base sm:text-lg text-neutral-300 font-light max-w-2xl mx-auto leading-relaxed">
             Hubungi pengelola hotel via WhatsApp untuk menanyakan ketersediaan kamar, memeriksa tanggal menginap, serta memperoleh konfirmasi harga terbaik.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* WhatsApp Contact Box */}
-        <div className="max-w-md mx-auto p-6 sm:p-8 bg-white/5 border border-white/15 backdrop-blur-sm space-y-5">
+        <ScrollReveal direction="up" delay={2} className="max-w-md mx-auto p-6 sm:p-8 bg-white/5 border border-white/15 backdrop-blur-sm space-y-5 luxury-glass-panel">
           <div className="flex items-center justify-center gap-3 text-hotel-bronze-light">
             <Phone className="w-5 h-5" />
             <span className="font-serif text-2xl sm:text-3xl font-medium tracking-wide text-white">
@@ -74,7 +75,7 @@ export function ReservationCTA() {
               Pusat Kota Jogja
             </span>
           </div>
-        </div>
+        </ScrollReveal>
 
         <p className="text-xs text-neutral-400 font-light">
           * Konfirmasi ketersediaan dan tarif final disepakati langsung bersama pihak hotel.

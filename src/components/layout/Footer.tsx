@@ -54,18 +54,23 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/#kamar" className="hover:text-white transition-colors">
+                <Link href="/kamar" className="hover:text-white transition-colors">
                   Pilihan Kamar & Tarif
                 </Link>
               </li>
               <li>
-                <Link href="/#fasilitas" className="hover:text-white transition-colors">
+                <Link href="/fasilitas" className="hover:text-white transition-colors">
                   Fasilitas Hotel
                 </Link>
               </li>
               <li>
-                <Link href="/#lokasi" className="hover:text-white transition-colors">
-                  Akses & Destinasi Sekitar
+                <Link href="/lokasi" className="hover:text-white transition-colors">
+                  Akses & Lokasi
+                </Link>
+              </li>
+              <li>
+                <Link href="/tentang-kami" className="hover:text-white transition-colors">
+                  Tentang Kami
                 </Link>
               </li>
               <li>

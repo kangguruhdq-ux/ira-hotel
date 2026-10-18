@@ -6,6 +6,7 @@ import { ROOMS_DATA } from "@/data/rooms";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { RoomModalGallery } from "@/components/rooms/RoomModalGallery";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { Maximize2 } from "lucide-react";
 
 export function GallerySection() {
@@ -21,19 +22,23 @@ export function GallerySection() {
   return (
     <section className="py-24 md:py-32 bg-[#F7F4EE] text-hotel-charcoal">
       <Container size="default">
-        <SectionHeading
-          label="Dokumentasi Visual Autentik"
-          title="Galeri Kamar Iraa Hotel"
-          description="Seluruh foto yang ditampilkan merupakan dokumentasi asli properti kamar Iraa Hotel untuk memberikan gambaran akurat dan transparan bagi para calon tamu."
-          align="center"
-        />
+        <ScrollReveal direction="up">
+          <SectionHeading
+            label="Dokumentasi Visual Autentik"
+            title="Galeri Kamar Iraa Hotel"
+            description="Seluruh foto yang ditampilkan merupakan dokumentasi asli properti kamar Iraa Hotel untuk memberikan gambaran akurat dan transparan bagi para calon tamu."
+            align="center"
+          />
+        </ScrollReveal>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {allImages.map((img, idx) => (
-            <div
+            <ScrollReveal
               key={idx}
+              direction="up"
+              delay={((idx % 3) + 1) as 1 | 2 | 3}
               onClick={() => setActiveImageIndex(idx)}
-              className="group relative aspect-[4/3] bg-stone-200 overflow-hidden cursor-pointer border border-[#E2DACF] hover:border-hotel-bronze transition-colors"
+              className="group relative aspect-[4/3] bg-stone-200 overflow-hidden cursor-pointer border border-[#E2DACF] hover:border-hotel-bronze transition-colors image-zoom-container shadow-xs"
             >
               <Image
                 src={img.src}
@@ -60,7 +65,7 @@ export function GallerySection() {
                   </p>
                 </div>
               </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </Container>
