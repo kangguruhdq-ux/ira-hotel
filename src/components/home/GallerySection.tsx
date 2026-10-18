@@ -123,10 +123,23 @@ const GALLERY_PHOTOS: GalleryPhoto[] = [
   },
   {
     src: "/images/rooms/iraa-economy-fan.png",
-    alt: "Kamar Iraa Economy Fan yang bersih, nyaman, dan paling terjangkau",
-    roomName: "Iraa Economy Fan",
+    alt: "Kamar Iraa Economy Fan yang rapi dengan ranjang double, TV LED, dan meja kerja",
+    roomName: "Iraa Economy Fan (Kamar Utama)",
     category: "Economy Fan",
     capacity: 2,
+  },
+  {
+    src: "/images/rooms/iraa-economy-fan-bathroom.png",
+    alt: "Kamar mandi dalam bersih dengan kloset jongkok dan dinding keramik terawat",
+    roomName: "Iraa Economy Fan (Kamar Mandi)",
+    category: "Economy Fan",
+    capacity: 2,
+  },
+  {
+    src: "/images/facilities/selasar-kamar-economy.png",
+    alt: "Selasar santai luar kamar dengan deretan kursi kayu jati dan tanaman asri",
+    roomName: "Selasar Kamar & Kursi Santai",
+    category: "Fasilitas Hotel",
   },
 ];
 
