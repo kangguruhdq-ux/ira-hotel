@@ -40,7 +40,19 @@ export function GallerySection() {
     {
       src: "/images/rooms/iraa-deluxe-twin.png",
       alt: "Kamar Iraa Deluxe Twin dengan dua ranjang terpisah dan pendingin AC",
-      roomName: "Iraa Deluxe Twin",
+      roomName: "Iraa Deluxe Twin (2 Ranjang)",
+      capacity: 2,
+    },
+    {
+      src: "/images/rooms/iraa-deluxe-twin-bathroom.png",
+      alt: "Kamar mandi Iraa Deluxe Twin dengan wastafel meja granit dan kloset duduk bidet",
+      roomName: "Iraa Deluxe Twin (Kamar Mandi & Wastafel)",
+      capacity: 2,
+    },
+    {
+      src: "/images/rooms/iraa-deluxe-twin-hallway.png",
+      alt: "Akses koridor hotel yang bersih, luas, dan dilengkapi tempat duduk santai",
+      roomName: "Area Koridor Kamar Iraa Hotel",
       capacity: 2,
     },
     {

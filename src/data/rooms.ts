@@ -115,7 +115,19 @@ export const ROOMS_DATA: RoomItem[] = [
     galleryImages: [
       {
         src: "/images/rooms/iraa-deluxe-twin.png",
-        alt: "Tampilan kamar Iraa Deluxe Twin dengan dua ranjang terpisah dan lampu dinding hangat",
+        alt: "Dua ranjang single bersih terpisah dengan selimut rapi, handuk bersih, dan pencahayaan panel headboard hangat",
+      },
+      {
+        src: "/images/rooms/iraa-deluxe-twin-bathroom.png",
+        alt: "Kamar mandi pribadi dengan wastafel meja granit, cermin rias, kloset duduk bidet, dan area shower bersih",
+      },
+      {
+        src: "/images/rooms/iraa-deluxe-twin-interior.png",
+        alt: "Fasilitas TV LED dinding dengan pencahayaan ambient, meja kerja, lemari pakaian, dan rak koper",
+      },
+      {
+        src: "/images/rooms/iraa-deluxe-twin-hallway.png",
+        alt: "Akses koridor hotel yang luas, terang, berlantai bersih, dan dilengkapi tempat duduk santai di luar kamar",
       },
     ],
   },
