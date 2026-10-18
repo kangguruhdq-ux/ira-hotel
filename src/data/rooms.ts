@@ -182,7 +182,7 @@ export const ROOMS_DATA: RoomItem[] = [
     description:
       "Kamar Economy AC menawarkan kenyamanan istirahat berhawa sejuk dengan harga yang sangat terjangkau. Fasilitas lengkap mencakup penyejuk udara, pemanas air, meja rias/kerja, televisi, dan fasilitas mandi lengkap.",
     capacity: 2,
-    bedConfiguration: "1 Ranjang Double (Kapasitas 2 Tamu)",
+    bedConfiguration: "2 Tempat Tidur Single (Twin Beds)",
     isBedConfigurationVerified: true,
     pricing: {
       base: 120000,
@@ -214,7 +214,23 @@ export const ROOMS_DATA: RoomItem[] = [
     galleryImages: [
       {
         src: "/images/rooms/iraa-economy-ac.png",
-        alt: "Kamar Iraa Economy AC dengan tempat tidur, meja kerja, televisi, dan air mineral",
+        alt: "Dua ranjang single bersih di Iraa Economy AC dengan bantal bermotif batik, handuk bersih, dan nakas samping",
+      },
+      {
+        src: "/images/rooms/iraa-economy-ac-desk.png",
+        alt: "Meja kerja berlapis kaca, kursi, TV LED dinding, dan complimentary air mineral botol",
+      },
+      {
+        src: "/images/rooms/iraa-economy-ac-wardrobe.png",
+        alt: "Lemari pakaian kayu tinggi dan rak jemuran handuk aluminium di dalam kamar",
+      },
+      {
+        src: "/images/rooms/iraa-economy-ac-bathroom.png",
+        alt: "Kamar mandi pribadi bersih dengan wastafel, cermin, shower water heater, dan kloset duduk",
+      },
+      {
+        src: "/images/rooms/iraa-economy-ac-terrace.jpg",
+        alt: "Teras dan selasar santai asri di depan kamar dengan pemandangan taman hijau dan meja kursi santai",
       },
     ],
   },
