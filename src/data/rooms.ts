@@ -172,6 +172,22 @@ export const ROOMS_DATA: RoomItem[] = [
         src: "/images/rooms/iraa-family-room.png",
         alt: "Tampilan luas kamar Iraa Family Room dengan ranjang double dan single di samping jendela",
       },
+      {
+        src: "/images/rooms/iraa-family-room-beds.png",
+        alt: "Detail penataan ranjang double dan single yang bersih, luas, dan nyaman untuk 3 tamu",
+      },
+      {
+        src: "/images/rooms/iraa-family-room-bathroom.png",
+        alt: "Kamar mandi pribadi bersih dengan shower water heater, wastafel cermin, dan kloset duduk",
+      },
+      {
+        src: "/images/facilities/lounge-tamu.png",
+        alt: "Ruang santai keluarga dan tamu berarsitektur klasik dengan pintu kayu jati antik khas Yogyakarta",
+      },
+      {
+        src: "/images/facilities/ruang-tengah-foyer.png",
+        alt: "Area foyer tengah hotel bernuansa kolonial dengan pintu kembar dan dokumentasi sejarah",
+      },
     ],
   },
   {

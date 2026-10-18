@@ -90,10 +90,36 @@ const GALLERY_PHOTOS: GalleryPhoto[] = [
   },
   {
     src: "/images/rooms/iraa-family-room.png",
-    alt: "Kamar Iraa Family Room berkapasitas 3 orang untuk keluarga",
+    alt: "Kamar Iraa Family Room berkapasitas 3 orang untuk keluarga dengan ranjang double dan single",
     roomName: "Iraa Family Room (3 Tamu)",
     category: "Family Room",
     capacity: 3,
+  },
+  {
+    src: "/images/rooms/iraa-family-room-beds.png",
+    alt: "Detail ranjang double dan single bersih di kamar Iraa Family Room",
+    roomName: "Iraa Family Room (Double & Single Bed)",
+    category: "Family Room",
+    capacity: 3,
+  },
+  {
+    src: "/images/rooms/iraa-family-room-bathroom.png",
+    alt: "Kamar mandi pribadi shower water heater, wastafel cermin, dan kloset duduk",
+    roomName: "Iraa Family Room (Kamar Mandi)",
+    category: "Family Room",
+    capacity: 3,
+  },
+  {
+    src: "/images/facilities/lounge-tamu.png",
+    alt: "Ruang santai keluarga dan tamu berarsitektur klasik dengan pintu kayu jati antik khas Yogyakarta",
+    roomName: "Lounge Tamu & Ruang Santai",
+    category: "Fasilitas Hotel",
+  },
+  {
+    src: "/images/facilities/ruang-tengah-foyer.png",
+    alt: "Area foyer tengah hotel bernuansa kolonial klasik dengan pintu kembar",
+    roomName: "Foyer Tengah & Sejarah Hotel",
+    category: "Fasilitas Hotel",
   },
   {
     src: "/images/rooms/iraa-economy-fan.png",
