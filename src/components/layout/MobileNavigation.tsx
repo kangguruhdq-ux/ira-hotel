@@ -123,8 +123,11 @@ export function MobileNavigation({
 
       {/* Top Header Bar inside Drawer */}
       <div
+        style={{
+          paddingTop: "calc(env(safe-area-inset-top, 0px) + 1rem)",
+        }}
         className={cn(
-          "shrink-0 relative z-10 flex items-center justify-between px-6 py-4 border-b border-white/10 bg-[#100F0E]/90 backdrop-blur-md transition-all duration-300",
+          "shrink-0 relative z-10 flex items-center justify-between px-6 pb-4 border-b border-white/10 bg-[#100F0E]/90 backdrop-blur-md transition-all duration-300",
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"
         )}
       >
@@ -214,9 +217,10 @@ export function MobileNavigation({
       <div
         style={{
           transitionDelay: isVisible ? "360ms" : "0ms",
+          paddingBottom: "calc(env(safe-area-inset-bottom, 0px) + 1.25rem)",
         }}
         className={cn(
-          "shrink-0 relative z-10 p-5 border-t border-white/10 space-y-2.5 bg-[#100F0E] transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)]",
+          "shrink-0 relative z-10 px-5 pt-5 border-t border-white/10 space-y-2.5 bg-[#100F0E] transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)]",
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
         )}
       >

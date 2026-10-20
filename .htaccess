@@ -1,0 +1,51 @@
+# ==============================================================================
+# IRAA HOTEL MALIOBORO — cPanel LiteSpeed / Apache Configuration
+# Target Domain: iraa-hotel.fynux.co
+# Path: /home/fynuxcom/iraa-hotel.fynux.co
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. CloudLinux / LiteSpeed Node.js App (Phusion Passenger)
+# Digunakan jika Anda memakai menu "Setup Node.js App" di cPanel
+# ------------------------------------------------------------------------------
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION BEGIN
+PassengerAppRoot "/home/fynuxcom/iraa-hotel.fynux.co"
+PassengerBaseURI "/"
+PassengerNodejs "/home/fynuxcom/nodevenv/iraa-hotel.fynux.co/20/bin/node"
+PassengerAppType node
+PassengerStartupFile server.js
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION END
+
+# ------------------------------------------------------------------------------
+# 2. Alternatif: Reverse Proxy ke Port Node.js (Jika menjalankan via PM2 / Port 3000)
+# Jika TIDAK memakai Passenger di atas, aktifkan blok berikut (hilangkan tanda #):
+# ------------------------------------------------------------------------------
+# <IfModule mod_rewrite.c>
+#   RewriteEngine On
+#   RewriteBase /
+#   RewriteCond %{HTTPS} !=on
+#   RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+#   RewriteCond %{REQUEST_FILENAME} !-f
+#   RewriteCond %{REQUEST_FILENAME} !-d
+#   RewriteRule ^(.*)$ http://127.0.0.1:3000/$1 [P,L]
+# </IfModule>
+
+# ------------------------------------------------------------------------------
+# 3. Optimasi Kompresi & Cache Aset Statis LiteSpeed / Apache
+# ------------------------------------------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json image/svg+xml
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/avif "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+</IfModule>
+
+# Cegah listing file (Index of /) jika Node.js sedang restart
+Options -Indexes

@@ -58,19 +58,22 @@ export function Header({ initialTransparent = true }: HeaderProps = {}) {
           borderBottomColor: isGlassHero
             ? "rgba(255, 255, 255, 0.20)"
             : "rgba(164, 134, 98, 0.45)",
+          paddingTop: isGlassHero
+            ? "calc(env(safe-area-inset-top, 0px) + 1.25rem)"
+            : "calc(env(safe-area-inset-top, 0px) + 0.875rem)",
         }}
         className={cn(
           "fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b text-white transition-all duration-300 ease-in-out shadow-xl",
-          isGlassHero ? "py-4 sm:py-5" : "py-3 sm:py-3.5 shadow-2xl"
+          isGlassHero ? "pb-4 sm:pb-5" : "pb-3 sm:pb-3.5 shadow-2xl"
         )}
       >
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-12 flex items-center justify-between">
           {/* Logo / Brand Name — White + Gold Lotus Emblem */}
           <Link
             href="/"
-            className="flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hotel-bronze py-1"
+            className="flex items-center gap-2.5 sm:gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hotel-bronze py-0.5 sm:py-1"
           >
-            <div className="relative w-10 h-10 sm:w-11 sm:h-11 shrink-0">
+            <div className="relative w-9 h-9 sm:w-11 sm:h-11 shrink-0">
               <Image
                 src="/images/logo-white.png"
                 alt="Logo Resmi Iraa Hotel Malioboro"
@@ -81,10 +84,10 @@ export function Header({ initialTransparent = true }: HeaderProps = {}) {
               />
             </div>
             <div className="flex flex-col text-left">
-              <span className="font-serif text-lg sm:text-xl tracking-wider uppercase font-semibold leading-tight text-white group-hover:text-hotel-bronze-light transition-colors">
+              <span className="font-serif text-base sm:text-xl tracking-wider uppercase font-semibold leading-tight text-white group-hover:text-hotel-bronze-light transition-colors">
                 Iraa Hotel
               </span>
-              <span className="text-[9px] uppercase tracking-mega -mt-0.5 font-medium text-hotel-bronze-light">
+              <span className="text-[8px] sm:text-[9px] uppercase tracking-mega -mt-0.5 font-medium text-hotel-bronze-light">
                 Malioboro Yogyakarta
               </span>
             </div>
